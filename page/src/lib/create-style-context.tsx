@@ -1,14 +1,14 @@
 import {
+  createContext,
   type ElementType,
+  forwardRef,
   type ForwardRefExoticComponent,
   type PropsWithoutRef,
   type RefAttributes,
-  createContext,
-  forwardRef,
   useContext,
 } from 'react'
-import { cx } from 'styled-system/css'
-import { styled } from 'styled-system/jsx'
+import {cx} from 'styled-system/css'
+import {styled} from 'styled-system/jsx'
 
 type Props = Record<string, unknown>
 type Recipe = {
@@ -26,44 +26,46 @@ export const createStyleContext = <R extends Recipe>(recipe: R) => {
       const slotStyles = recipe(variantProps) as Record<Slot<R>, string>
 
       return (
-        <StyleContext.Provider value={slotStyles}>
-          <Component {...otherProps} />
-        </StyleContext.Provider>
+          <StyleContext.Provider value={slotStyles}>
+            <Component {...otherProps} />
+          </StyleContext.Provider>
       )
     }
     return StyledComponent
   }
 
   const withProvider = <T, P extends { className?: string }>(
-    Component: ElementType,
-    slot: Slot<R>,
+      Component: ElementType,
+      slot: Slot<R>,
   ): ForwardRefExoticComponent<PropsWithoutRef<P> & RefAttributes<T>> => {
     const StyledComponent = styled(Component)
+    // eslint-disable-next-line react/display-name
     return forwardRef<T, P>((props, ref) => {
       const [variantProps, otherProps] = recipe.splitVariantProps(props)
       const slotStyles = recipe(variantProps) as Record<Slot<R>, string>
 
       return (
-        <StyleContext.Provider value={slotStyles}>
-          <StyledComponent
-            {...otherProps}
-            ref={ref}
-            className={cx(slotStyles?.[slot], props.className)}
-          />
-        </StyleContext.Provider>
+          <StyleContext.Provider value={slotStyles}>
+            <StyledComponent
+                {...otherProps}
+                ref={ref}
+                className={cx(slotStyles?.[slot], props.className)}
+            />
+          </StyleContext.Provider>
       )
     })
   }
 
   const withContext = <T, P extends { className?: string }>(
-    Component: ElementType,
-    slot: Slot<R>,
+      Component: ElementType,
+      slot: Slot<R>,
   ): ForwardRefExoticComponent<PropsWithoutRef<P> & RefAttributes<T>> => {
     const StyledComponent = styled(Component)
+    // eslint-disable-next-line react/display-name
     return forwardRef<T, P>((props, ref) => {
       const slotStyles = useContext(StyleContext)
       return (
-        <StyledComponent {...props} ref={ref} className={cx(slotStyles?.[slot], props.className)} />
+          <StyledComponent {...props} ref={ref} className={cx(slotStyles?.[slot], props.className)}/>
       )
     })
   }
