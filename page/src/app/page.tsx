@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import {IconButton} from "~/components/ui/icon-button";
 import {FileText, Presentation} from "lucide-react";
-import {Presence} from "@ark-ui/react";
+import Image from 'next/image'
 
 export const runtime = "edge";
 
@@ -63,8 +63,7 @@ export default async function Home() {
                                             outline: "1px solid",
                                             outlineColor: "black"
                                         })}>
-                                            <img src={slideInfo.imageUrl}
-                                                 alt={slideInfo.slideTitle}/>
+                                            <Image width={1920} height={1080} src={slideInfo.imageUrl} alt={slideInfo.slideTitle}/>
                                         </Card.Header>
                                         <hr style={{
                                             color: "gray",
@@ -130,7 +129,7 @@ function getSlideInfo(slide: string, title: string): SlideInfo {
         slideTitle: title,
         slideUrl: `https://slide.moripa.nikomaru.dev/${slide}/index.html`,
         pdfUrl: `https://slide.moripa.nikomaru.dev/${slide}/slidev-exported.pdf`,
-        imageUrl: `https://pub-f3e3168c75404090b6bd8358789607d8.r2.dev/${slide}/picture/1.png`,
+        imageUrl: `https://slide.moripa.nikomaru.dev/${slide}/picture/1.png`,
     }
 }
 

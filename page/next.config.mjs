@@ -13,9 +13,9 @@ const nextConfig = {
         remotePatterns: [
             {
                 protocol: 'https',
-                hostname: 'crafthead.net',
+                hostname: 'slide.moripa.nikomaru.dev',
                 port: '',
-                pathname: '/avatar/**',
+                pathname: '/**/picture/**',
             }],
     }
 };
