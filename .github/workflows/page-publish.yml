@@ -31,6 +31,7 @@ jobs:
         run: |
           npm run pages:build
           ls -a
+          pwd
           ls -a .vercel/output/static
 
       - name: Deploy
