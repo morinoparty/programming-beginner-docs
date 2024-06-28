@@ -1,0 +1,10 @@
+{
+  "name": "slide",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "CC0",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ]
+}
