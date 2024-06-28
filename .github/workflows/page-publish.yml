@@ -30,7 +30,7 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: 905f1a28fc0d6e37163d7a9728c67bf3
           projectName: moripa-programming-beginner-docs
-          directory: .vercel/output/static
+          directory: page/.vercel/output/static
           # Optional: Enable this if you want to have GitHub Deployments triggered
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           # Optional: Switch what branch you are publishing to.
