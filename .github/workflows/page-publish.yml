@@ -30,6 +30,8 @@ jobs:
       - name: Build
         run: |
           npm run pages:build
+          ls -a
+          ls -a .vercel/output/static
 
       - name: Deploy
         uses: cloudflare/wrangler-action@v3
