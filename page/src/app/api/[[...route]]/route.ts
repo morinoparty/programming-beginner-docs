@@ -1,6 +1,5 @@
 import { Hono } from 'hono'
 import { handle } from 'hono/vercel'
-import slideRouter from "@/src/app/api/[[...route]]/slideRoute";
 
 export const runtime = 'edge'
 
@@ -11,7 +10,5 @@ app.get('/hello', (c) => {
         message: 'Hello Next.js!',
     })
 })
-
-app.route("/slide",slideRouter)
 
 export const GET = handle(app)

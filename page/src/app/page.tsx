@@ -4,15 +4,15 @@ import Link from "next/link";
 export const runtime = "edge";
 
 export default async function Home() {
-    let data: string[]| undefined = await fetch('https://page.moripa.nikomaru.dev/api/slide/list')
-        .then((res) =>
-            res.json()
-        )
+    let bucket = process.env.BUCKET
 
-    console.log(data)
-    if (data === undefined) {
-        data = []
+    if (!bucket) {
+        throw new Error("BUCKET is not defined in the environment");
     }
+    let list =(await bucket.list()).objects.map((o) => o.key.split("/")[0])
+    let data = Array.from(new Set(list))
+
+
     return (
         <>
             <div className={css({fontSize: "2xl", fontWeight: 'bold'})}>Hello 🐼!</div>
@@ -30,4 +30,12 @@ export default async function Home() {
             </ul>
         </>
     )
+}
+
+declare global {
+    namespace NodeJS {
+        interface ProcessEnv {
+            BUCKET: R2Bucket;
+        }
+    }
 }
