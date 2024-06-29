@@ -3,6 +3,8 @@ import Image from "next/image";
 import remarkGfm from 'remark-gfm';
 import {ReactElement, ReactNode} from "react";
 
+export const runtime = 'edge';
+
 interface ImgProps {
     src?: string;  // src is now optional
     alt?: string;
