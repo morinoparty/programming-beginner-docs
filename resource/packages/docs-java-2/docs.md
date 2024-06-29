@@ -61,7 +61,7 @@ Intellij IDEAをインストールするために、[JetBrains Tool Box](https:/
 
 最後にJDKというところをの設定をします。クリックをしていただくとJDKのダウンロードという項目が出てきます。そこを押していただき、出てきたポップアップの、
 - バージョン: `21`
-- ベンダー: `Eclipse Temurin (AdoptOｐenJDK HotSpot)`
+- ベンダー: `Eclipse Temurin (AdoptOpenJDK HotSpot)`
 - 場所: `変更なし`
 
 を選択しダウンロードを押します。

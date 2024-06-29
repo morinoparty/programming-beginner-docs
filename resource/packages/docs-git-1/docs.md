@@ -9,7 +9,7 @@ Downloadsを押す
 ![alt text](./static/image.png)
 
 windowsを選択
-![alt text](./static/Lycoris_Ladiata.jpg)
+![alt text](./static/img.png)
 
 Click here to downloadを押す
 ![alt text](./static/image-1.png)
