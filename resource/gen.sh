@@ -2,7 +2,7 @@ echo "スライド名を入力してください"
 read slide_name
 SLIDE_NAME=$slide_name
 echo "スライド名は$SLIDE_NAMEです"
-FILE_NAME="slide-$slide_name"
+FILE_NAME="docs-$slide_name"
 echo "スライドを生成します"
 rm -rf packages/$FILE_NAME
 cp -r packages/template packages/$FILE_NAME
