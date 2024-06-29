@@ -3,7 +3,7 @@ theme: ../theme-modern
 download: true
 ---
 
-# Test Slidev
+# Git・GitHubのセットアップ
 ---
 # 目次
 

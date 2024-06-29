@@ -3,7 +3,7 @@ import * as Card from '~/components/ui/card'
 import React from "react";
 import Link from "next/link";
 import {IconButton} from "~/components/ui/icon-button";
-import {FileText, Presentation} from "lucide-react";
+import {FileCode2, FileText, Presentation} from "lucide-react";
 import Image from 'next/image'
 
 export const runtime = "edge";
@@ -77,6 +77,18 @@ export default async function Home() {
                                         </Card.Body>
 
                                         <Card.Footer gap="3">
+
+                                            <Link href={"/docs/" + slideInfo.slideName} target="_blank"
+                                                  rel="noopener noreferrer">
+                                                <IconButton className={css({
+                                                    backgroundColor: "white",
+                                                    outline: "1px solid",
+                                                    outlineColor: "black"
+                                                })} aria-label="Show slidev">
+                                                    <FileCode2 color="black"/>
+                                                </IconButton>
+                                            </Link>
+
                                             <Link href={slideInfo.slideUrl} target="_blank"
                                                   rel="noopener noreferrer">
                                                 <IconButton className={css({
@@ -87,6 +99,7 @@ export default async function Home() {
                                                     <Presentation color="black"/>
                                                 </IconButton>
                                             </Link>
+
                                             <Link href={slideInfo.pdfUrl} target="_blank"
                                                   rel="noopener noreferrer">
                                                 <IconButton className={css({
@@ -111,6 +124,7 @@ export default async function Home() {
 
 type SlideInfo = {
     slideTitle: string;
+    slideName: string;
     slideUrl: string;
     pdfUrl: string;
     imageUrl: string;
@@ -129,6 +143,7 @@ type slide = {
 function getSlideInfo(slide: string, title: string): SlideInfo {
     return {
         slideTitle: title,
+        slideName: slide,
         slideUrl: `https://slide.moripa.nikomaru.dev/${slide}/index.html`,
         pdfUrl: `https://slide.moripa.nikomaru.dev/${slide}/slidev-exported.pdf`,
         imageUrl: `https://slide.moripa.nikomaru.dev/${slide}/picture/1.png`,

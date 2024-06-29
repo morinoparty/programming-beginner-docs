@@ -3,7 +3,7 @@ theme: ../theme-modern
 download: true
 ---
 
-# 環境構築(Java21)
+# IntelliJ IDEAのインストール
 ---
 # 目次
 
