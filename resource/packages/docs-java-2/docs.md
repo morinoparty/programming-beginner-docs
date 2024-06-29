@@ -21,7 +21,7 @@ Intellij IDEAをインストールするために、[JetBrains Tool Box](https:/
 
 そこで以下のプラグインをダウンロードします。
 - Japanese Language Pack
-- Minecraft Development　(こちらの選択時に警告ができるが無視して進める)
+- Minecraft Development(こちらの選択時に警告ができるが無視して進める)
 
 ダウンロードが完了したら、Intellij IDEAを再起動します。
 
@@ -61,7 +61,7 @@ Intellij IDEAをインストールするために、[JetBrains Tool Box](https:/
 
 最後にJDKというところをの設定をします。クリックをしていただくとJDKのダウンロードという項目が出てきます。そこを押していただき、出てきたポップアップの、
 - バージョン: `21`
-- ベンダー: `Eclipse Temurin (AdoptOPenJDK HotSpot)`
+- ベンダー: `Eclipse Temurin (AdoptOｐenJDK HotSpot)`
 - 場所: `変更なし`
 
 を選択しダウンロードを押します。

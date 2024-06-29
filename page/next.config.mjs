@@ -15,7 +15,7 @@ const nextConfig = {
                 protocol: 'https',
                 hostname: 'slide.moripa.nikomaru.dev',
                 port: '',
-                pathname: '/**/picture/**',
+                pathname: '/**',
             }],
     }
 };

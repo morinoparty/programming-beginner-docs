@@ -1,12 +1,10 @@
 import {css} from '@/styled-system/css';
-import * as Card from '~/components/ui/card'
 import React from "react";
-import Link from "next/link";
-import {IconButton} from "~/components/ui/icon-button";
-import {FileCode2, FileText, Presentation} from "lucide-react";
-import Image from 'next/image'
+import SlideCard from "~/components/SlideCard";
 
 export const runtime = "edge";
+
+
 
 export default async function Home() {
     let bucket = process.env.BUCKET
@@ -50,68 +48,12 @@ export default async function Home() {
             {slideList.map((slide) => (
                 <>
                     <h2 className={css({fontSize: "xl", fontWeight: 'bold', paddingBottom: "10px"})}>{slide.Group}</h2>
-                    <ul>
+                    <ul className={css({display: "flex"})}>
                         {slide.list
                             .map((slideName) => getSlideInfo(slideName.slide, slideName.title))
                             .map((slideInfo) => (
                                 <li key={slideInfo.slideTitle}>
-                                    <Card.Root width="xs" className={css({
-                                        outline: "1px solid",
-                                        outlineColor: "gray.light.a5",
-                                        margin: "20px"
-                                    })}>
-                                        <Card.Header className={css({
-                                            padding: "0px 0px 0px 0px",
-                                            outline: "1px solid",
-                                            outlineColor: "black"
-                                        })}>
-                                            <Image width={1920} height={1080} src={slideInfo.imageUrl} alt={slideInfo.slideTitle}/>
-                                        </Card.Header>
-                                        <hr style={{
-                                            color: "gray",
-                                            backgroundColor: "gray",
-                                            height: 2
-                                        }}/>
-                                        <Card.Body className={css({padding: "5px 0px 0px 20px"})}>
-                                            <div className={css({fontSize: "xl"})}>{slideInfo.slideTitle}</div>
-                                        </Card.Body>
-
-                                        <Card.Footer gap="3">
-
-                                            <Link href={"/docs/" + slideInfo.slideName} target="_blank"
-                                                  rel="noopener noreferrer">
-                                                <IconButton className={css({
-                                                    backgroundColor: "white",
-                                                    outline: "1px solid",
-                                                    outlineColor: "black"
-                                                })} aria-label="Show slidev">
-                                                    <FileCode2 color="black"/>
-                                                </IconButton>
-                                            </Link>
-
-                                            <Link href={slideInfo.slideUrl} target="_blank"
-                                                  rel="noopener noreferrer">
-                                                <IconButton className={css({
-                                                    backgroundColor: "white",
-                                                    outline: "1px solid",
-                                                    outlineColor: "black"
-                                                })} aria-label="Show slidev">
-                                                    <Presentation color="black"/>
-                                                </IconButton>
-                                            </Link>
-
-                                            <Link href={slideInfo.pdfUrl} target="_blank"
-                                                  rel="noopener noreferrer">
-                                                <IconButton className={css({
-                                                    backgroundColor: "white",
-                                                    outline: "1px solid",
-                                                    outlineColor: "black"
-                                                })} aria-label="Download pdf">
-                                                    <FileText color="black"/>
-                                                </IconButton>
-                                            </Link>
-                                        </Card.Footer>
-                                    </Card.Root>
+                                    <SlideCard slideInfo={slideInfo}/>
                                 </li>
                             ))}
                     </ul>
@@ -120,24 +62,6 @@ export default async function Home() {
             }
         </>
     )
-}
-
-type SlideInfo = {
-    slideTitle: string;
-    slideName: string;
-    slideUrl: string;
-    pdfUrl: string;
-    imageUrl: string;
-}
-
-type SlideGroup = {
-    Group: string;
-    list: slide[];
-}
-
-type slide = {
-    slide: string;
-    title: string;
 }
 
 function getSlideInfo(slide: string, title: string): SlideInfo {
@@ -149,6 +73,26 @@ function getSlideInfo(slide: string, title: string): SlideInfo {
         imageUrl: `https://slide.moripa.nikomaru.dev/${slide}/picture/1.png`,
     }
 }
+
+export type SlideInfo = {
+    slideTitle: string;
+    slideName: string;
+    slideUrl: string;
+    pdfUrl: string;
+    imageUrl: string;
+}
+
+export type SlideGroup = {
+    Group: string;
+    list: slide[];
+}
+
+export type slide = {
+    slide: string;
+    title: string;
+}
+
+
 
 declare global {
     namespace NodeJS {
