@@ -1,6 +1,7 @@
 name: Check pull request
 
 on:
+  workflow_dispatch:
   pull_request:
     paths:
       - 'page/**'
@@ -26,11 +27,8 @@ jobs:
         run: |
           npm install
 
-      - name: Lint
-        run:
-          npm run lint
-
-      - name: Reviewdog
-        uses: reviewdog/action-eslint@v1
+      - uses: reviewdog/action-eslint@v1
         with:
-          eslint-github-check-bright: true
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          reporter: github-pr-review # Change reporter.
+          workdir: page

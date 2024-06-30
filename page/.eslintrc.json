@@ -5,5 +5,10 @@
   ],
   "plugins": [
     "eslint-plugin-next-on-pages"
-  ]
+  ],
+  "rules": {
+    "no-console": ["error"],
+    "eqeqeq": ["error", "always"],
+    "camelcase": ["warn"]
+  }
 }
