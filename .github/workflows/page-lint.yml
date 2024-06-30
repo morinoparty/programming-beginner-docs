@@ -6,12 +6,15 @@ on:
     paths:
       - 'page/**'
 
+permissions:
+  statuses: write
+  contents: read
+  pull-requests: write
+
 defaults:
   run:
     working-directory: page
 
-permissions:
-  statuses: write
 
 jobs:
   eslint:
@@ -32,3 +35,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           reporter: github-pr-review # Change reporter.
           workdir: page
+          fail_on_error: 'true'
