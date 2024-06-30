@@ -32,6 +32,8 @@ export default async function Home() {
         })
     })
 
+    console.log(data)
+
     if (data.length !== 0) {
         slideList.push({
             "Group": "その他",
