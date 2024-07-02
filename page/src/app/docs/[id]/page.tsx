@@ -2,6 +2,7 @@ import ReactMarkdown from 'react-markdown';
 import Image from "next/image";
 import remarkGfm from 'remark-gfm';
 import {ReactElement, ReactNode} from "react";
+import "./markdownStyle.css"
 
 export const runtime = 'edge';
 
@@ -12,7 +13,8 @@ interface ImgProps {
 }
 
 const components = {
-    img: ({src, alt, children}: ImgProps): ReactElement => <Image src={src!!} alt={alt!!} width={500} height={500}>{children}</Image>,
+    img: ({src, alt, children}: ImgProps): ReactElement => <Image src={src!!} alt={alt!!} width={500}
+                                                                  height={500}>{children}</Image>,
 };
 
 export default async function RemoteMdxPage({params}: { params: { id: string } }) {
@@ -26,10 +28,12 @@ export default async function RemoteMdxPage({params}: { params: { id: string } }
         if (!url.startsWith("./static")) {
             return url
         }
-        return `https://slide.moripa.nikomaru.dev/${id}/${url.replace("./","")}`
+        return `https://slide.moripa.nikomaru.dev/${id}/${url.replace("./", "")}`
     }
 
-    return <ReactMarkdown urlTransform={urlTransform}
-                          remarkPlugins={[remarkGfm]}
-                          components={components}>{markdown}</ReactMarkdown>
+    return (<>
+        <ReactMarkdown urlTransform={urlTransform}
+                       remarkPlugins={[remarkGfm]}
+                       components={components}>{markdown}</ReactMarkdown>
+    </>)
 }

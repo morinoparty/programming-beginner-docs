@@ -4,8 +4,6 @@ import SlideCard from "~/components/SlideCard";
 
 export const runtime = "edge";
 
-
-
 export default async function Home() {
     let bucket = process.env.BUCKET
 
@@ -31,8 +29,6 @@ export default async function Home() {
             data = data.filter(n => n !== slide.slide);
         })
     })
-
-    console.log(data)
 
     if (data.length !== 0) {
         slideList.push({

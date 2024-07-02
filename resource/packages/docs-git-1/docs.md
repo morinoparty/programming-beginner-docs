@@ -50,7 +50,7 @@ Use MinTTYを選択
 Fast-forward or mergeを選択
 ![alt text](./static/image-15.png)
 
-Enable file sustem cachingを選択
+Enable file system cachingを選択
 ![alt text](./static/image-17.png)
 
 特に設定せずInstallを押す。
