@@ -36,7 +36,7 @@ Intellij IDEAをインストールするために、[JetBrains Tool Box](https:/
 
 ![alt text](./static/image-3.png)
 
-そうしたら、それぞれのフィールドを選択していきます。<br>
+そうしたら、それぞれのフィールドを選択していきます。
 
 - 名前: `test`等好きな名前を選択してください。
 -  場所: そのままで結構です。 

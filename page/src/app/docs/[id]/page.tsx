@@ -1,6 +1,7 @@
 import ReactMarkdown from 'react-markdown';
 import Image from "next/image";
 import remarkGfm from 'remark-gfm';
+import remarkBreaks from 'remark-breaks';
 import {ReactElement, ReactNode} from "react";
 import {css} from "@/styled-system/css";
 
@@ -32,7 +33,7 @@ export default async function RemoteMdxPage({params}: { params: { id: string } }
         return `https://slide.moripa.nikomaru.dev/${id}/${url.replace("./", "")}`
     }
 
-    return (<div className={css({backgroundColor : "#d1f9d4", padding: "100px"})}>
+    return (<div className={css({backgroundColor: "#d1f9d4", padding: "100px"})}>
         <div className={css({
             width: "800px",
             margin: "auto",
@@ -42,7 +43,7 @@ export default async function RemoteMdxPage({params}: { params: { id: string } }
         })}>
             <ReactMarkdown className='markdown'
                            urlTransform={urlTransform}
-                           remarkPlugins={[remarkGfm]}
+                           remarkPlugins={[remarkGfm, remarkBreaks]}
                            components={components}>{markdown}</ReactMarkdown>
         </div>
     </div>)
