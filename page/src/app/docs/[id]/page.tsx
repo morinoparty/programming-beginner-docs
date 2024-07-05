@@ -1,6 +1,7 @@
 import ReactMarkdown from 'react-markdown';
 import Image from "next/image";
 import remarkGfm from 'remark-gfm';
+import remarkBreaks from 'remark-breaks';
 import {ReactElement, ReactNode} from "react";
 import {css} from "@/styled-system/css";
 
@@ -14,8 +15,8 @@ interface ImgProps {
 
 const components = {
     img: ({src, alt, children}: ImgProps): ReactElement =>
-        <Image className={css({display: "block", margin: "auto"})} src={src!!} alt={alt!!} width={500}
-               height={500}>{children}</Image>,
+        <Image className={css({display: "block", padding: "20px"})} src={src!!} alt={alt!!} width={1920}
+               height={1080}>{children}</Image>,
 };
 
 export default async function RemoteMdxPage({params}: { params: { id: string } }) {
@@ -32,17 +33,17 @@ export default async function RemoteMdxPage({params}: { params: { id: string } }
         return `https://slide.moripa.nikomaru.dev/${id}/${url.replace("./", "")}`
     }
 
-    return (<div className={css({backgroundColor : "#edf2f7", padding: "100px"})}>
+    return (<div className={css({backgroundColor: "#d1f9d4", padding: "100px"})}>
         <div className={css({
-            width: "1200px",
+            width: "800px",
             margin: "auto",
-            padding: "20px",
-            fontSize: "xl",
+            padding: "50px",
+            fontSize: "l",
             backgroundColor: "white",
         })}>
             <ReactMarkdown className='markdown'
                            urlTransform={urlTransform}
-                           remarkPlugins={[remarkGfm]}
+                           remarkPlugins={[remarkGfm, remarkBreaks]}
                            components={components}>{markdown}</ReactMarkdown>
         </div>
     </div>)
