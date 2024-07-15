@@ -3,10 +3,15 @@ theme: ../theme-modern
 download: true
 ---
 
-# 値と型
+# メソッド
+
 ---
+
 # 目次
 
 <Toc maxDepth="1"></Toc>
 
 ---
+
+# メソッドとは
+

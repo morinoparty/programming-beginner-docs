@@ -2,7 +2,7 @@
 
 - [x] 1. 環境構築 (2024-07-03 Wed) <br>
          資料: [Gitの環境構築](https://page.nikomaru.dev/docs/git-1) [JDKのインストール](https://page.nikomaru.dev/docs/java-1) [Intellij IDEAのインストール](https://page.nikomaru.dev/docs/java-2)
-- [ ] 2. 変数とデータ型, 式, 条件分岐と繰り返し, 配列, メソッド (2024-07-15 Mon) <br>
+- [ ] 2. 変数とデータ型, 条件分岐と繰り返し, 配列, メソッド (2024-07-15 Mon) <br>
          資料:
 - [ ] 3. プラグインを作ってみよう(イベント) (2024-07-17 Wed) <br>
          資料:

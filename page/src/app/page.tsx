@@ -21,6 +21,15 @@ export default async function Home() {
                 {slide: "java-1", title: "JDKのインストール"},
                 {slide: "java-2", title: "統合開発環境のインストール"},
             ]
+        },
+        {
+            "Group": "Java",
+            "list": [
+                {slide: "java-value-type", title: "変数とデータ型"},
+                {slide: "java-statement-repeat", title: "J 条件分岐と繰り返し"},
+                {slide: "java-array-list", title: "配列"},
+                {slide: "java-method", title: "メソッド"},
+                ]
         }
     ]
 

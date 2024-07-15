@@ -7,3 +7,4 @@ echo "スライドを生成します"
 rm -rf packages/$FILE_NAME
 cp -r packages/template packages/$FILE_NAME
 sed -i "s/test-slidev/$SLIDE_NAME/g" "packages/$FILE_NAME/package.json"
+git add packages/$FILE_NAME/*
