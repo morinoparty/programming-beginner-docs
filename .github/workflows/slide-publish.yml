@@ -76,7 +76,7 @@ jobs:
 
       - name: Generate screenshot
         run: |
-          yarn workspaces foreach -p -j unlimited -A run screenshot 
+          yarn workspaces foreach -A run screenshot 
 
       - name: Upload to S3
         run: |
