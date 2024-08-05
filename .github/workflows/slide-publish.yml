@@ -23,7 +23,7 @@ jobs:
       S3_ENDPOINT: ${{ secrets.S3_ENDPOINT }}
 
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 20
 
     steps:
       - uses: actions/checkout@v4
