@@ -1,4 +1,4 @@
-# 第一回スケジュール
+# 第２回スケジュール
 
 - [x] 1. 環境構築, 変数とデータ型, 条件分岐と繰り返し, 配列, メソッド (2024-11-11 Mon) <br>
          資料: [Gitの環境構築](https://page.moripa.nikomaru.dev/docs/git-1) [JDKのインストール](https://page.moripa.nikomaru.dev/docs/java-1) [Intellij IDEAのインストール](https://page.moripa.nikomaru.dev/docs/java-2) [変数とデータ型](https://page.moripa.nikomaru.dev/docs/java-value-type) [条件分岐と繰り返し](https://page.moripa.nikomaru.dev/docs/java-statement-repeat) [配列](https://page.moripa.nikomaru.dev/docs/java-array-list) [メソッド](https://page.moripa.nikomaru.dev/docs/java-method)
