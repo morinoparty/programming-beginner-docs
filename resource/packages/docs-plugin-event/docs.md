@@ -21,7 +21,7 @@
 - Plugin Name: 適当な名前を選択します。(CamelCaseで記入してください[^1])今回は`test-event`としておきます。
 - Main Class: この後の入力で自動的に変化するため変更しないでください。
 
-[^1]: CamelCaseとは、単語の区切りを大文字とするのもです。例: mechanical pencilであればMechanical Pencilとします。
+[^1]: CamelCaseとは、単語の区切りを大文字とするのもです。例: mechanical pencilであればMechanicalPencilとします。
 
 次にOptional Settingというところに行きます。
 - Build System: `Gradle`を選択。
