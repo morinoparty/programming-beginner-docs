@@ -8,7 +8,7 @@
 新規プロジェクトを押したら、左側のジェネレーターのところにあるMinecraftを選択します。
 
 
-![alt text](./static/image-3.png)
+![alt text](./static/image-2.png)
 
 そうしたら、それぞれのフィールドを選択していきます。<br>
 
