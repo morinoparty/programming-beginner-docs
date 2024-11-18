@@ -20,6 +20,8 @@ export default async function Home() {
                 {slide: "git-1", title: "Git・GitHubの設定"},
                 {slide: "java-1", title: "JDKのインストール"},
                 {slide: "java-2", title: "統合開発環境のインストール"},
+                {slide: "gradle-1", title: "Gradleのインストール"},
+                {slide: "java-3", title: "VSCodeの設定"},
             ]
         },
         {
@@ -75,9 +77,9 @@ function getSlideInfo(slide: string, title: string): SlideInfo {
     return {
         slideTitle: title,
         slideName: slide,
-        slideUrl: `https://slide.moripa.nikomaru.dev/${slide}/index.html`,
-        pdfUrl: `https://slide.moripa.nikomaru.dev/${slide}/slidev-exported.pdf`,
-        imageUrl: `https://slide.moripa.nikomaru.dev/${slide}/picture/1.png`,
+        slideUrl: `https://${process.env.NEXT_PUBLIC_S3_HOST_NAME}/${slide}/index.html`,
+        pdfUrl: `https://${process.env.NEXT_PUBLIC_S3_HOST_NAME}/${slide}/slidev-exported.pdf`,
+        imageUrl: `https://${process.env.NEXT_PUBLIC_S3_HOST_NAME}/${slide}/picture/1.png`,
     }
 }
 

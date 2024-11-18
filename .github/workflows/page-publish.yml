@@ -4,6 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
+      - master
       - main
     paths:
       - 'page/**'
@@ -15,28 +16,31 @@ defaults:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    name: Deploy
+
     steps:
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
 
-      - name: Install dependencies
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          version: 9
+          run_install: false
+
+      - name: Install
         run: |
-          npm install
+          pnpm install
 
       - name: Build
         run: |
-          npm run pages:build
-          ls -a
-          pwd
-          ls -a .vercel/output/static
+          pnpm run pages:build
 
       - name: Deploy
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy page/.vercel/output/static --project-name=moripa-programming-beginner-docs
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy page/.vercel/output/static --project-name=${{secrets.CLOUDFLARE_PAGE_PROJECT_ID}}

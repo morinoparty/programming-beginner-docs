@@ -4,6 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
+      - master
       - main
     paths:
       - 'resource/**'
@@ -27,21 +28,30 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
 
+        # pnpmのインストール
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          version: 9
+          run_install: false
+
+        # Node.jsのインストール
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+        # パッケージのインストール
+      - name: Install dependencies
+        run: pnpm install
+
+        # Templateの削除
       - name : Remove template
         run: |
           rm -rf packages/template
 
-      - name : Install npm dependency
-        run: |
-          corepack enable
-          yarn set version stable
-          yarn config set -H enableImmutableInstalls false
-          yarn install
-
+        #依存関係のインストール
       - name : Install dependencies
         run: |
           sudo apt update && sudo apt install -y \
@@ -51,6 +61,7 @@ jobs:
           fonts-noto-cjk \
           && sudo rm -rf /var/lib/apt/lists/*
 
+        # フォントのインストール pdf,screenshotの日本語対応
       - name : Install font
         env:
           LANG: ja_JP:UTF-8
@@ -58,26 +69,12 @@ jobs:
           sudo fc-cache -fv && \
           fc-list
 
+        # Chromeのインストール playwrightの依存関係
       - name : Install Chrome
         run: |
-          https://bootstrap.pypa.io/get-pip.py | python3 && \
-          python3 -m pip install playwright && \
-          playwright install-deps
+          pnpm dlx @playwright/test@latest install --with-deps
 
-      - name : Reset bucket
-        run: |
-          aws s3 rm s3://$S3_UPLOAD_BUCKET --endpoint-url $S3_ENDPOINT --recursive
-
-      - name: Build Setup
-        run: |
-          cd packages
-          find -name "package.json" | xargs sed 's/\$S3_UPLOAD_BUCKET/$S3_UPLOAD_BUCKET/g'
-          find -name "package.json" | xargs sed 's/\$S3_ENDPOINT/$S3_ENDPOINT/g'
-
-      - name: Generate screenshot
-        run: |
-          yarn workspaces foreach -A run screenshot 
-
+        # S3へのアップロード
       - name: Upload to S3
         run: |
-          yarn workspaces foreach -A run publish
+          pnpm run publish
