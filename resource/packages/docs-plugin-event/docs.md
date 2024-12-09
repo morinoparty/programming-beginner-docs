@@ -17,7 +17,7 @@
 - Platform Type: 今回はプラグインを作成するので、`Plugin`を選択してください。
 - Platform : `Bukkit`を選択。
 - Bukkit Platform: `paper`を選択。
-- Minecraft Version: 作成したいバージョンを選択してください。今回は`1.21`で進めていきます。
+- Minecraft Version: 作成したいバージョンを選択してください。今回は`1.21.3`で進めていきます。
 - Plugin Name: 適当な名前を選択します。(CamelCaseで記入してください[^1])今回は`test-event`としておきます。
 - Main Class: この後の入力で自動的に変化するため変更しないでください。
 
@@ -60,7 +60,7 @@ plugins {
 ```groovy
 tasks{
     runServer {
-        minecraftVersion("1.21")
+        minecraftVersion("1.21.3")
     }
 }
 ```
