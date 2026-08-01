@@ -87,6 +87,7 @@ repositories {
 }
 
 dependencies {
+
 +   implementation 'org.incendo:cloud-core:2.0.0'
 +   implementation 'org.incendo:cloud-paper:2.0.0-beta.10'
 +   implementation 'org.incendo:cloud-annotations:2.0.0'
@@ -142,5 +143,7 @@ public class DiceCommand {
 では、ここで振るサイコロの個数を指定できるようにしてみましょう。
 
 Hint: `@Argument`アノテーションって取った引数を使ってfor文を使う。
+
+
 
 
